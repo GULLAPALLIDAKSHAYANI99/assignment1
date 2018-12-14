@@ -1,45 +1,42 @@
 <html>
-	<head>
-		<script type="text/javascript">
-			function Student(name)
-			{
-				this.name=name;
-				this.marks=new Array(Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100));
-			}
-			var stu1=new Student("dattu");
-			var stu2=new Student("teja");
-			var stu3=new Student("bindu");
-			var stu4=new Student("yamini");
-			var stu5=new Student("cr");
-			var stu=[stu1,stu2,stu3,stu4,stu5];
-			var sum=0;
-			for(var i=0;i<5;i++)
-			{
-			    for(var j=0;j<3;j++)
-			    {
-					stu[i].sum=sum+stu[i].marks[j];
-			    }
-		   }
-		   for(var i=0;i<5;i++)
-		   {
-			    for(var j=0;j<3;j++)
-			    {
-					stu[i].avg=stu[i].sum/3;
-			    }
-		   }
-		   stu.sort(function(a,b){return b.avg-a.avg});
-		   for(var i=0;i<5;i++)
-		   {
-			   document.writeln(stu[i].name+" "+stu[i].avg);
-		   }
-		   stu.sort(function(a,b){return b.sum-a.sum});
-		   for(var i=0;i<5;i++)
-		   {
-			   document.writeln(stu[i].name+" "+stu[i].sum);
-		   }	
-		</script>
-	</head>
-	<body>
-	</body>
+<head>
+<title>STUDENT DETAILS</title>
+</head>
+<body>
+<script type="text/javascript">
+function student(name)
+{
+this.name=name;
+this.sub=new Array(Math.floor(Math.random() *100),Math.floor(Math.random() *100),Math.floor(Math.random() *100));
+this.total=this.sub[0]+this.sub[1]+this.sub[2];
+this.avg=this.total/3;
+}
+var stu1=new student("A");
+var stu2=new student("B");
+var stu3=new student("C");
+var stu4=new student("F");
+var stu5=new student("E");
+var arr=[stu1,stu2,stu3,stu4,stu5];
+arr.sort(function(a,b){ if(a.name>b.name) return 1;
+else if(a.name<b.name) return -1;
+else return 0;});
+document.writeln("Sort By Name"+"<br>");
+document.writeln("NAME \t\tTOTAL \t\t AVERAGE"+"<br>");
+print();
+function print(){
+for(var i=0;i<5;i++)
+{
+   document.writeln(arr[i].name+" \t"+arr[i].total+"\t"+arr[i].avg+"<br>");
+}
+}
+document.writeln("Sort By Total"+"<br>");
+document.writeln("NAME \t\tTOTAL \t\t AVERAGE"+"<br>");
+arr.sort(function(a,b){return a.total-b.total;});
+print();
+document.writeln("Sort By Average"+"<br>");
+document.writeln("NAME \t\tTOTAL \t\t AVERAGE"+"<br>");
+arr.sort(function(a,b){return a.avg-b.avg;});
+print();
+</script>
+</body>
 </html>
-
